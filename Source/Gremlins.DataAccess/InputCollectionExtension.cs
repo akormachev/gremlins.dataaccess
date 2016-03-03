@@ -29,6 +29,8 @@ namespace Gremlins.DataAccess
 
         #endregion
 
+        #region Public methods
+
         public static InputCollection Add<T>(this InputCollection collection, string name, T value, ParameterConfiguration<T> factory)
         {
             return Add(collection, name, (object)value, factory);
@@ -97,6 +99,8 @@ namespace Gremlins.DataAccess
 		{
 			return Add(collection, name, (object)value);
 		}
+
+        #endregion
 
     }
 }

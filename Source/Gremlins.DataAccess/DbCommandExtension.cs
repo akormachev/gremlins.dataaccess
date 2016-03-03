@@ -54,7 +54,7 @@ namespace Gremlins.DataAccess
             //}            
 
             if (value == null)
-                value = DBNull.Value;            
+                value = DBNull.Value;
 
             parameter.Value = value;
         }

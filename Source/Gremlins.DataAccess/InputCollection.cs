@@ -95,23 +95,5 @@ namespace Gremlins.DataAccess
 
         #endregion
     }
-
-    public class InputParameter
-    {
-        private readonly string _name;
-        private readonly object _value;
-        private readonly ParameterConfiguration _factory;
-
-        public string Name { get { return _name; } }
-        public object Value { get { return _value; } }
-        public ParameterConfiguration Configuration { get { return _factory; } }
-
-        public InputParameter(string name, object value, ParameterConfiguration factory = null)
-        {
-            _name = name;
-            _value = value;
-            _factory = factory;
-        }
-    }
 }
 

@@ -41,8 +41,17 @@ namespace Gremlins.DataAccess
             return Add(collection, name, (object)value, factory);
         }
 
+        public static InputCollection Add(this InputCollection collection, string name, byte value, ParameterConfiguration<byte> factory = null)
+        {
+            return Add(collection, name, (object)value, factory);
+        }
 
-		public static InputCollection Add(this InputCollection collection, string name, decimal value, ParameterConfiguration<decimal> factory = null)
+        public static InputCollection Add(this InputCollection collection, string name, byte? value, ParameterConfiguration<byte?> factory = null)
+        {
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<byte>());
+        }
+
+        public static InputCollection Add(this InputCollection collection, string name, decimal value, ParameterConfiguration<decimal> factory = null)
         {
             return Add(collection, name, (object)value, factory);
         }
@@ -52,6 +61,16 @@ namespace Gremlins.DataAccess
             return Add(collection, name, (object)value, factory ??  new NullableParameterConfiguration<decimal>());
         }
 
+        public static InputCollection Add(this InputCollection collection, string name, double value, ParameterConfiguration<double> factory = null)
+        {
+            return Add(collection, name, (object)value, factory);
+        }
+
+        public static InputCollection Add(this InputCollection collection, string name, double? value, ParameterConfiguration<double?> factory = null)
+        {
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<double>());
+        }
+
         public static InputCollection Add(this InputCollection collection, string name, DateTime value, ParameterConfiguration<DateTime> factory = null)
         {
             return Add(collection, name, (object)value, factory);
@@ -59,10 +78,7 @@ namespace Gremlins.DataAccess
 
         public static InputCollection Add(this InputCollection collection, string name, DateTime? value, ParameterConfiguration<DateTime?> factory = null)
         {
-            if (factory == null)
-                factory = new NullableParameterConfiguration<DateTime>();
-            return Add(collection, name, (object)value, factory);
-            
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<DateTime>());            
         }        
 
         public static InputCollection Add(this InputCollection collection, string name, float value, ParameterConfiguration<float> factory = null)
@@ -75,14 +91,29 @@ namespace Gremlins.DataAccess
             return Add(collection, name, (object)value, factory);
         }
 
+        public static InputCollection Add(this InputCollection collection, string name, Guid? value, ParameterConfiguration<Guid?> factory = null)
+        {
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<Guid>());
+        }
+
         public static InputCollection Add(this InputCollection collection, string name, int value, ParameterConfiguration<int> factory = null)
         {
             return Add(collection, name, (object)value, factory);
         }
 
+        public static InputCollection Add(this InputCollection collection, string name, int? value, ParameterConfiguration<int?> factory = null)
+        {
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<int>());
+        }
+
         public static InputCollection Add(this InputCollection collection, string name, long value, ParameterConfiguration<long> factory = null)
         {
             return Add(collection, name, (object)value, factory);
+        }
+
+        public static InputCollection Add(this InputCollection collection, string name, long? value, ParameterConfiguration<long?> factory = null)
+        {
+            return Add(collection, name, (object)value, factory ?? new NullableParameterConfiguration<long>());
         }
 
         public static InputCollection Add(this InputCollection collection, string name, short value, ParameterConfiguration<short> factory = null)

@@ -2,7 +2,7 @@
 
 namespace Gremlins.DataAccess
 {
-    public class OutputCollection : List<string>
+    public class OutputCollection : IEnumerable<string>
     {
 
         #region Static methods
@@ -19,30 +19,51 @@ namespace Gremlins.DataAccess
 
         #endregion
 
+        #region Fields
+
+        private readonly List<string> _items;
+
+        #endregion
+
         #region Constructors
 
-        private OutputCollection() { }
+        private OutputCollection()
+        {
+            _items = new List<string>();
+        }
 
         private OutputCollection(params string[] results)
         {
-            this.AddRange(results);
+            _items = new List<string>(results);
         }
 
         #endregion
 
         #region Public methods
 
-        public OutputCollection Add(string key)
+        public void AddParameter(string key)
         {
-            base.Add(key);
-            return this;
+            _items.Add(key);
         }
 
-        public OutputCollection AddIf(bool condition, string key)
+        public void AddParameterIf(bool condition, string key)
         {
             if (condition)
-                return this.Add(key);
-            return this;
+                this.AddParameter(key);
+        }
+
+        public IEnumerator<string> GetEnumerator()
+        {
+            return _items.GetEnumerator();
+        }
+
+        #endregion
+
+        #region Private methods
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return _items.GetEnumerator();
         }
 
         #endregion
